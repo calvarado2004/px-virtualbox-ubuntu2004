@@ -5,6 +5,8 @@ NUM_DISKS = 1
 # size of each disk in gigabytes
 DISK_GBS = 173
 
+KUBERNETES_VERSION = "1.22.5"
+
 ENV["VAGRANT_EXPERIMENTAL"] = "disks"
 
 MASTER_IP = "192.168.73.100"
@@ -15,7 +17,9 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
-  config.vm.provision "shell", path: "common.sh"
+  config.vm.provision "shell", path: "common.sh",
+    env: { "KUBERNETES_VERSION" => KUBERNETES_VERSION }
+
   config.vm.provision "shell", path: "local-storage/create-volumes.sh"
   config.vm.disk :disk, size: "25GB", primary: true
 
@@ -46,7 +50,7 @@ Vagrant.configure("2") do |config|
     end
 
     master.vm.provision "shell", path: "master.sh",
-      env: { "MASTER_IP" => MASTER_IP, "TOKEN" => TOKEN }
+      env: { "MASTER_IP" => MASTER_IP, "TOKEN" => TOKEN, "KUBERNETES_VERSION" => KUBERNETES_VERSION }
 
     master.vm.provision :file do |file|
       file.source = "local-storage/storageclass.yaml"
