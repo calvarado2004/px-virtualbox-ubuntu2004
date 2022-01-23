@@ -1,6 +1,6 @@
 # px-virtualbox
 
-A Kubernetes cluster installed with Kubeadm aligned to CKA, CKAD and CKS specifications with Portworx, deployed using Vagrant on Virtualbox.\
+A Kubernetes cluster installed with Kubeadm aligned to CKA, CKAD and CKS specifications with Portworx, deployed using Vagrant on Virtualbox.
 
 # Prerequisites
 
