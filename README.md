@@ -9,7 +9,7 @@ Install Vagrant and Virtualbox on Linux or macOS hosts\
 -12CPUs recommended.\
 -400GB of free storage Flash storage recommended, I have 1TB on my laptop.
 
-# Using Ubuntu 20.04
+# Now using Ubuntu 20.04 instead of CentOS
 
 This version has been updated to Ubuntu 20.04 due to CentOS has been deprecated, creating only one disk of 130GB per worker node, one kvdb disk of 15GB and making the root partition bigger (25GB).
 
@@ -19,9 +19,9 @@ Due to the CKA and CKAD certifications uses Calico, I upgraded this cluster to u
 
 Current versions (this can change in the future), that are working:\
 \
--Kubernetes 1.22.4.
+-Kubernetes 1.22.5.
 \
--Kernel 4.18.0-305 with kernel-devel installed.
+-Kernel 5.4.0-96 with kernel-headers installed.
 \
 -Portworx 2.9.1-ea2 with CSI enabled.
 \
