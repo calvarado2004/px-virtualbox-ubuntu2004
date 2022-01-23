@@ -1,21 +1,25 @@
 # px-virtualbox
-Portworx deployed with Vagrant using Virtualbox
+
+A Kubernetes cluster installed with Kubeadm aligned to CKA, CKAD and CKS specifications with Portworx, deployed using Vagrant on Virtualbox.\
 
 # Prerequisites
 
 Install Vagrant and Virtualbox on Linux or macOS hosts\
 \
--32GB RAM recommended.\
+-64GB of RAM recommended.\
 -12CPUs recommended.\
--400GB of free storage Flash storage recommended, I have 1TB on my laptop.
+-600GB of free storage Flash storage recommended, I have 1TB on my laptop.
+
+You can customize the resources of your master node and your worker nodes by separate modifying the Vagrantfile.\
+Your worker nodes will have the same resources that you specify for the worker nodes group.
 
 # Now using Ubuntu 20.04 instead of CentOS
 
-This version has been updated to Ubuntu 20.04 due to CentOS has been deprecated, creating only one disk of 130GB per worker node, one kvdb disk of 15GB and making the root partition bigger (25GB).
+This version has been updated to Ubuntu 20.04 due to CentOS has been deprecated, creating only one disk of 200GB per worker node, one kvdb disk of 50GB and the root partition uses 40GB.
 
 # Using Calico instead of Flannel
 
-Due to the CKA and CKAD certifications uses Calico, I upgraded this cluster to use it instead of Flannel.
+Due to the CKA, CKAD and CKS certifications uses Calico, I upgraded this cluster to use it instead of Flannel.
 
 Current versions (this can change in the future), that are working:\
 \
@@ -87,8 +91,8 @@ This is a derivative project from:
 
 https://github.com/dotnwat/k8s-vagrant-libvirt 
 
-Includes a Portworx deployment on a 3 worker node cluster and 1 master node.
+Includes a Portworx deployment on a 3 worker node cluster and 1 master node.\
 
-It creates 3 virtual disks per worker node. Uses 6GB of RAM per node, I would recommend to have at least 32GB of RAM on your host.
+It creates 3 virtual disks per worker node. Uses 12GB of RAM per node, I would recommend to have at least 64GB of RAM on your host.
 
 Portworx pods will take up to 10 minutes to become ready.
