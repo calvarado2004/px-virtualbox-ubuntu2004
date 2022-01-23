@@ -15,6 +15,8 @@ echo $DROPLET_IP_ADDRESS
 
 echo "Environment=\"KUBELET_EXTRA_ARGS=--node-ip=$DROPLET_IP_ADDRESS\"" >> /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 
+echo "serverTLSBootstrap: true" >> /var/lib/kubelet/config.yaml
+
 systemctl daemon-reload
 
 systemctl restart kubelet

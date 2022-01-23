@@ -3,7 +3,7 @@ NUM_WORKERS = 3
 # number of extra disks per worker
 NUM_DISKS = 1
 # size of each disk in gigabytes
-DISK_GBS = 173
+DISK_GBS = 203
 
 KUBERNETES_VERSION = "1.22.5"
 
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "master" do |master|
 
     master.vm.provider "virtualbox" do |v|
-      v.memory = 4096
+      v.memory = 6144
       v.cpus = 2
       v.name = "master.calvarado04.com"
       v.check_guest_additions = false
@@ -79,7 +79,7 @@ Vagrant.configure("2") do |config|
       worker.vm.network "private_network", ip: "#{WORKER_IP_BASE}" + i.to_s.rjust(2, '0')
 
       worker.vm.provider "virtualbox" do |v|
-        v.memory = 6144
+        v.memory = 12288
         v.cpus = 2
         v.name = "worker#{i}.calvarado04.com"
         v.check_guest_additions = false
@@ -94,7 +94,7 @@ Vagrant.configure("2") do |config|
           v.customize ["createmedium", "disk", "--filename", "disks/worker#{i}-disk-kvdb", "--format", "VDI", "--size", "51200"]
           v.customize ["storageattach", :id,  "--storagectl", "SCSI", "--port", 2, "--device", 0, "--type", "hdd", "--nonrotational", "on", "--medium", "disks/worker#{i}-disk-kvdb.vdi" ]
           (1..NUM_DISKS).each do |j|
-            v.customize ["createmedium", "disk", "--filename", "disks/worker#{i}-disk-0#{j}", "--format", "VDI", "--size", "177152"]
+            v.customize ["createmedium", "disk", "--filename", "disks/worker#{i}-disk-0#{j}", "--format", "VDI", "--size", "203000"]
             v.customize ["storageattach", :id,  "--storagectl", "SCSI", "--port", 3, "--device", 0, "--type", "hdd", "--nonrotational", "on", "--medium", "disks/worker#{i}-disk-0#{j}.vdi" ]
           end
         end

@@ -14,7 +14,7 @@ EOF
 
 apt-get update
 
-apt-get install -y apt-transport-https ca-certificates curl docker.io linux-headers-$(uname -r) gcc cloud-guest-utils xfsprogs
+apt-get install -y apt-transport-https ca-certificates curl jq docker.io linux-headers-$(uname -r) gcc cloud-guest-utils xfsprogs
 
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 

@@ -25,6 +25,11 @@ sleep 60s
 echo Continue...
 
 
+vagrant ssh master -c "for certificate in $(sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get csr -o json | jq -r '.items[].metadata.name'); do sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf certificate approve $certificate; done"
+
+
+vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml"
+
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f 'https://install.portworx.com/2.9?comp=prometheus-operator&kbver=1.22.4'"
 
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf label nodes worker0.calvarado04.com worker1.calvarado04.com worker2.calvarado04.com px/metadata-node=true"

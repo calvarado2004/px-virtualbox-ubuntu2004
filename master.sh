@@ -14,6 +14,8 @@ echo "Environment=\"KUBELET_EXTRA_ARGS=--node-ip=$DROPLET_IP_ADDRESS\"" >> /etc/
 
 systemctl daemon-reload
 
+echo "serverTLSBootstrap: true" >> /var/lib/kubelet/config.yaml 
+
 systemctl restart kubelet
 
 KUBECONFIG=/etc/kubernetes/admin.conf kubectl apply -f /tmp/calico.yml
