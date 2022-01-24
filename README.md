@@ -65,6 +65,10 @@ $ kubectl exec -it pod/${POD} -n kube-system -- /opt/pwx/bin/pxctl status
 ```
 ![pxctl status](/images/px-status.png)
 
+You can use Lens too.
+
+![pxctl status](/images/cluster.png)
+
 
 # Monitoring enabled
 
