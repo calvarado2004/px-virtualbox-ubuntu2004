@@ -31,6 +31,14 @@ Current versions (this can change in the future), that are working:\
 \
 -Stork 2.8.2.
 
+# Deploy Portworx Essentials instead of Portworx Enterprise
+
+Portworx Essentials is for free, up to 5 nodes and with some other limitations.
+
+You can deploy Portworx Essentials instead of Portworx Enterprise which will have to be activated after 30 days.
+
+Before to create the cluster, modify the main script CreateCluster.sh, comment the line that installs PX Enterprise and uncomment the line that installs Essentials.
+ 
 # Create the cluster
 
 ```

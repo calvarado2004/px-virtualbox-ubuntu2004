@@ -67,7 +67,10 @@ Vagrant.configure("2") do |config|
       file.destination = "/tmp/portworx-enterprise.yaml"
     end
 
-
+    master.vm.provision :file do |file|
+      file.source = "portworx-essentials.yaml"
+      file.destination = "/tmp/portworx-essentials.yaml"
+    end
 
     master.vm.provision "shell", path: "portworx.sh"
   end
