@@ -27,7 +27,7 @@ Current versions (this can change in the future), that are working:\
 \
 -Kernel 5.4.0-96 with kernel-headers installed.
 \
--Portworx 2.9.1-ea2 with CSI enabled.
+-Portworx 2.9.1.1 with CSI enabled.
 \
 -Stork 2.8.2.
 
