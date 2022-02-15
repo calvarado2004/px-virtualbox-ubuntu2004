@@ -30,6 +30,8 @@ Current versions (this can change in the future), that are working:\
 -Portworx 2.9.1.1 with CSI enabled.
 \
 -Stork 2.8.2.
+\
+-NGINX Ingress Controller v.1.1.1
 
 # Deploy Portworx Essentials instead of Portworx Enterprise
 
