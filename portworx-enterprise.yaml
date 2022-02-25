@@ -33,4 +33,14 @@ spec:
       exportMetrics: true
   featureGates:
     CSI: "true"
-
+  nodes:
+  - selector:
+      #nodeName: <node-1>
+      labelSelector:
+        matchLabels:
+          portworx.io/node-type: storageless
+    storage:
+      devices:
+    network:
+      dataInterface: enp0s8
+      mgmtInterface: enp0s8
