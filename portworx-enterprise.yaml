@@ -40,7 +40,7 @@ spec:
         matchLabels:
           portworx.io/node-type: storageless
     storage:
-      devices:
+      devices: []
     network:
       dataInterface: enp0s8
       mgmtInterface: enp0s8
