@@ -40,7 +40,7 @@ spec:
       #nodeName: <node-1>
       labelSelector:
         matchLabels:
-          portworx.io/node-type: storageless
+          px-node: storageless
     storage:
       devices: []
     network:
