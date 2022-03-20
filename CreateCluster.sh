@@ -27,6 +27,10 @@ echo Continue...
 
 vagrant ssh master -c "for certificate in $(sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get csr -o json | jq -r '.items[].metadata.name'); do sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf certificate approve $certificate; done"
 
+#Approve all the pending certificates
+for certificate in $(vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get csr --no-headers" | grep -i pending |  awk '{ print $1 }'); 
+  do vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf certificate approve ${certificate}"; 
+done
 
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml"
 
@@ -46,10 +50,15 @@ sleep 60s
 
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get pods -o wide -n kube-system -l name=portworx"
 
+#Approve all the pending certificates, second round
+for certificate in $(vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get csr --no-headers" | grep -i pending |  awk '{ print $1 }'); 
+  do vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf certificate approve ${certificate}"; 
+done
+
 #Adding Nginx Ingress Controller
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/baremetal/deploy.yaml"
 
 
 #Add external workers as Ingress Endpoints
-#kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec":{"externalIPs":["192.168.73.200","192.168.73.201","192.168.73.202"]}}'
+kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec":{"externalIPs":["192.168.73.200","192.168.73.201","192.168.73.202"]}}'
 
