@@ -60,5 +60,5 @@ vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf appl
 
 
 #Add external workers as Ingress Endpoints
-kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec":{"externalIPs":["192.168.73.200","192.168.73.201","192.168.73.202"]}}'
+#kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec":{"externalIPs":["192.168.73.200","192.168.73.201","192.168.73.202"]}}'
 
