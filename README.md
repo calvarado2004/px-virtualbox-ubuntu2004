@@ -23,11 +23,11 @@ Due to the CKA, CKAD and CKS certifications uses Calico, I upgraded this cluster
 
 Current versions (this can change in the future), that are working:\
 \
--Kubernetes 1.22.5.
+-Kubernetes 1.23.5.
 \
 -Kernel 5.4.0-96 with kernel-headers installed.
 \
--Portworx 2.9.1.1 with CSI enabled.
+-Portworx 2.9.1.3 with CSI enabled.
 \
 -Stork 2.8.2.
 \
@@ -47,10 +47,10 @@ Before to create the cluster, modify the main script CreateCluster.sh, comment t
 $ ./CreateCluster.sh
 $ vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get nodes"
 NAME      STATUS   ROLES                  AGE     VERSION
-master.calvarado04.com    Ready    control-plane,master   8m29s   v1.22.5
-worker0.calvarado04.com   Ready    <none>                 6m10s   v1.22.5
-worker1.calvarado04.com   Ready    <none>                 3m27s   v1.22.5
-worker2.calvarado04.com   Ready    <none>                 65s     v1.22.5
+master.calvarado04.com    Ready    control-plane,master   8m29s   v1.23.5
+worker0.calvarado04.com   Ready    <none>                 6m10s   v1.23.5
+worker1.calvarado04.com   Ready    <none>                 3m27s   v1.23.5
+worker2.calvarado04.com   Ready    <none>                 65s     v1.23.5
 
 ```
 
@@ -60,10 +60,10 @@ worker2.calvarado04.com   Ready    <none>                 65s     v1.22.5
 $ vagrant ssh master -c "sudo cat /etc/kubernetes/admin.conf" > ${HOME}/.kube/config
 $ kubectl get nodes
 NAME                  STATUS   ROLES                  AGE     VERSION
-master.calvarado04.com    Ready    control-plane,master   15m     v1.22.5
-worker0.calvarado04.com   Ready    <none>                 13m     v1.22.5
-worker1.calvarado04.com   Ready    <none>                 11m     v1.22.5
-worker2.calvarado04.com   Ready    <none>                 8m58s   v1.22.5
+master.calvarado04.com    Ready    control-plane,master   15m     v1.23.5
+worker0.calvarado04.com   Ready    <none>                 13m     v1.23.5
+worker1.calvarado04.com   Ready    <none>                 11m     v1.23.5
+worker2.calvarado04.com   Ready    <none>                 8m58s   v1.23.5
 ```
 Check the PX pods status:
 

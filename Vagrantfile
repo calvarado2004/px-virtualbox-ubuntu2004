@@ -5,7 +5,7 @@ NUM_DISKS = 1
 # size of each disk in gigabytes
 DISK_GBS = 203
 
-KUBERNETES_VERSION = "1.22.5"
+KUBERNETES_VERSION = "1.23.5"
 
 ENV["VAGRANT_EXPERIMENTAL"] = "disks"
 

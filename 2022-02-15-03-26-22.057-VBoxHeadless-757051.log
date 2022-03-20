@@ -1,0 +1,12 @@
+Log created: 2022-02-15T03:26:22.570151000Z
+Process ID:  757051 (0xb8d3b)
+Parent PID:  20542 (0x503e)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: worker0.calvarado04.com
+Arg[3]: --startvm
+Arg[4]: 2ba936dc-82f3-4b8d-9d36-39db9ff31c34
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2

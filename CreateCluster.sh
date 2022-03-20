@@ -48,3 +48,8 @@ vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf get 
 
 #Adding Nginx Ingress Controller
 vagrant ssh master -c "sudo kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/baremetal/deploy.yaml"
+
+
+#Add external workers as Ingress Endpoints
+#kubectl patch svc ingress-nginx-controller -n ingress-nginx -p '{"spec":{"externalIPs":["192.168.73.200","192.168.73.201","192.168.73.202"]}}'
+
