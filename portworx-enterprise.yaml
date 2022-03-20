@@ -7,7 +7,6 @@ metadata:
   annotations:
     portworx.io/install-source: "https://install.portworx.com/?operator=true&mc=false&kbver=1.22.4&b=true&s=%2Fdev%2Fsdc&j=auto&kd=%2Fdev%2Fsdb&m=eth1&d=eth1&c=px-asustuf-cluster-7208c62c-0c76-4157-b2eb-b6391a19e9fe&stork=true&csi=true&mon=true&tel=false&st=k8s&promop=true"
     portworx.io/misc-args: "-cluster_domain alpharetta-ga"
-
 spec:
   image: portworx/oci-monitor:2.9.1.3
   imagePullPolicy: IfNotPresent
