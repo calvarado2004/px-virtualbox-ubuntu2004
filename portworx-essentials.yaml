@@ -22,7 +22,7 @@ spec:
     mgmtInterface: enp0s8
   secretsProvider: k8s
   stork:
-    image: openstorage/stork:2.8.2
+    image: openstorage/stork:2.9.0
     enabled: true
     args:
       webhook-controller: "true"
