@@ -14,7 +14,7 @@ EOF
 
 apt-get update
 
-apt-get install -y apt-transport-https ca-certificates curl jq docker.io linux-headers-$(uname -r) gcc cloud-guest-utils xfsprogs
+apt-get install -y apt-transport-https ca-certificates curl jq docker.io linux-headers-$(uname -r) gcc cloud-guest-utils xfsprogs nftables
 
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
@@ -49,13 +49,19 @@ EOF
 
 hostnamectl set-hostname $(hostname).calvarado04.com
 
+
 systemctl daemon-reload
+
+systemctl start nftables
+
+systemctl enable nftables
 
 systemctl restart docker
 
 systemctl enable kubelet
 
 systemctl start kubelet
+
 
 
 sysctl --system
